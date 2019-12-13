@@ -42,7 +42,7 @@ export const smurfReducer = (state = initialState, action) => {
         return {
             ...state,
             isFetching: false,
-
+            smurfs: [...state.smurfs, action.payload]
         }
     case GET_SMURF_FAILURE:
         return {

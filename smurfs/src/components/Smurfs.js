@@ -14,14 +14,12 @@ function Smurfs(props) {
   console.log("smurf props", props);
 
   function add(n, h, a){
-
-      let item = {
+      return {
           name: n,
           height: h,
           age: a,
           id: Date.now() 
       }
-      return item
   }
 
   return (
@@ -52,7 +50,7 @@ function Smurfs(props) {
         />
         <br />
         <br />
-        <button onClick={() => props.pushSmurfs(add(name, height, age))}>Submit</button>
+        <button type = "submit" onClick={() => props.pushSmurfs(add(name, height, age))}>Submit</button>
 
       </form><br/>
       <button onClick={() => props.getSmurfs()}>Smurfs!</button>
