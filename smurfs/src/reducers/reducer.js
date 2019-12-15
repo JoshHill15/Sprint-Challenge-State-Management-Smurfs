@@ -30,7 +30,7 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        err: action.payload
+        error: action.payload
       };
     case GET_SMURF_START:
         return {
@@ -48,7 +48,7 @@ export const smurfReducer = (state = initialState, action) => {
         return {
             ...state,
             isFetching: false,
-            err: action.payload
+            error: action.payload
         }
     default:
       return state;

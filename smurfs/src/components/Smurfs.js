@@ -1,58 +1,22 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { getSmurfs, pushSmurfs } from "../actions/smurfAction";
+import SmurfForm from "./SmurfForm";
 
 function Smurfs(props) {
-  const [name, setName] = useState("");
-  const [height, setHeight] = useState("");
-  const [age, setAge] = useState("");
-
-  function submit(e) {
-    e.preventDefault();
-    // add(name, height, age)
-  }
-  console.log("smurf props", props);
-
+ 
   function add(n, h, a){
-      return {
-          name: n,
-          height: h,
-          age: a,
-          id: Date.now() 
-      }
-  }
+    return {
+        name: n,
+        height: h,
+        age: a,
+        id: Date.now() 
+    }
+}
 
   return (
     <div>
-      <form onSubmit={submit}>
-        <input
-          type="text"
-          placeholder="name"
-          name="name"
-          onChange={e => setName(e.target.value)}
-          value={name}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="height"
-          name="height"
-          onChange={e => setHeight(e.target.value)}
-          value={height}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="age"
-          name="age"
-          onChange={e => setAge(e.target.value)}
-          value={age}
-        />
-        <br />
-        <br />
-        <button type = "submit" onClick={() => props.pushSmurfs(add(name, height, age))}>Submit</button>
-
-      </form><br/>
+      <SmurfForm add = {add} pushSmurfs = {props.pushSmurfs} />
       <button onClick={() => props.getSmurfs()}>Smurfs!</button>
       {!props.smurfs && <p>GET SOME BLUE PEOPLE!</p>}
       {props.smurfs && (

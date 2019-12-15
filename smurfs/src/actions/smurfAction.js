@@ -20,12 +20,13 @@ export const getSmurfs = () => dispatch => {
     })
 }
 
-export const pushSmurfs = (item) => dispatch => {
+export const pushSmurfs = item => dispatch => {
     console.log("PUSH SMURFS ITEM" ,item)
     dispatch({ type: GET_SMURF_START })
     axios.post("http://localhost:3333/smurfs", item)
     .then(res => {
         console.log("pushsmurfs", res)
+        dispatch({ type: GET_SMURF_SUCCESS, payload: item})
     })
     .catch(err => {
         console.log("PUSH SMURF ERR", err)
