@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { getSmurfs, pushSmurfs } from "../actions/smurfAction";
 import SmurfForm from "./SmurfForm";
